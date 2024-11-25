@@ -1,0 +1,6 @@
+pytest
+selenium
+requests
+assertpy
+pytest-html
+psycopg2
