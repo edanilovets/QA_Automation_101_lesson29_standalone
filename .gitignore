@@ -10,8 +10,8 @@ pytest-logs.txt
 *.so
 .vscode/
 reports/
-local_reports/
-docker_reports/
+# local_reports/
+# docker_reports/
 
 # Distribution / packaging
 .Python
