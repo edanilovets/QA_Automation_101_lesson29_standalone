@@ -1,5 +1,5 @@
 import pytest
-from selenium.webdriver import Chrome, ChromeOptions, Firefox, FirefoxOptions
+from selenium.webdriver import Chrome, ChromeOptions, Firefox, FirefoxOptions, Remote
 
 from src.utils.settings_reader import SettingsReader
 
@@ -25,10 +25,22 @@ def driver(request):
     browser = request.config.getoption("--browser")
     headless = request.config.getoption("--headless")
 
-    if browser.lower() == "chrome":
+    if browser.lower() == "chrome-docker":
+        options = ChromeOptions()
+        options.add_argument('--ignore-ssl-errors=yes')
+        options.add_argument('--ignore-certificate-errors')
+        driver = Remote(
+            command_executor='http://localhost:4444/wd/hub',
+            options=options
+        )
+    elif browser.lower() == "chrome":
         options = ChromeOptions()
         if headless:
             options.add_argument("--headless")
+            options.add_argument("--disable-gpu")
+            options.add_argument("--no-sandbox")
+            options.add_argument("--disable-dev-shm-usage")
+            options.add_argument("--remote-debugging-port=9222")  # For debugging
         driver = Chrome(options=options)
     elif browser.lower() == "firefox":
         options = FirefoxOptions()
