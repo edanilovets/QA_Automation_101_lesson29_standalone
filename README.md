@@ -1,7 +1,9 @@
 # Build the docker image with chrome and chromedriver (doens't work)
+
 ### Build and check the docker image
 docker build -t selenium-tests:latest .
 
+### Debug the docker image
 docker run --rm -it selenium-tests bash
 chromium --version
 chromedriver --version
@@ -12,7 +14,6 @@ docker run --rm selenium-tests:latest
 
 ### Run the tests with a shared memory of 2GB
 docker run --rm --shm-size=2g selenium-tests
-
 
 # Create a smoke test container
 docker build -t smoke-test:latest .

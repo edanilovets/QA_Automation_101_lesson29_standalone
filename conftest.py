@@ -25,7 +25,7 @@ def driver(request):
     browser = request.config.getoption("--browser")
     headless = request.config.getoption("--headless")
 
-    if browser.lower() == "chrome-docker":
+    if browser.lower() == "chrome-selenium-standalone":
         options = ChromeOptions()
         options.add_argument('--ignore-ssl-errors=yes')
         options.add_argument('--ignore-certificate-errors')
