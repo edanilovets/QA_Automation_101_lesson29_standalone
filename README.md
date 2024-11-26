@@ -1,4 +1,6 @@
-# Build the docker image with chrome and chromedriver (doens't work)
+# Build the docker image with chrome and chromedriver
+## Solution at the end
+https://gist.github.com/varyonic/dea40abcf3dd891d204ef235c6e8dd79
 
 ### Build and check the docker image
 ```bash
