@@ -9,6 +9,9 @@ pytest-logs.txt
 # C extensions
 *.so
 .vscode/
+reports/
+local_reports/
+docker_reports/
 
 # Distribution / packaging
 .Python

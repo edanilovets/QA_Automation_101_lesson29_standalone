@@ -2,3 +2,4 @@ pytest
 selenium
 requests
 assertpy
+pytest-html
