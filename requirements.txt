@@ -4,3 +4,4 @@ requests
 assertpy
 pytest-html
 psycopg2
+allure-pytest

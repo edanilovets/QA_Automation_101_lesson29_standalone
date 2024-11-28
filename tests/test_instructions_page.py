@@ -10,7 +10,6 @@ from tests.base_test import BaseTest
 class TestInstructionsPage(BaseTest):
     """Test Instructions page"""
 
-    @pytest.mark.skip(reason="Test is not implemented yet")
     def test_instruction_download(self, driver, auto_config):
         # Login as guest
         self.login_as_guest(driver, auto_config)
