@@ -1,11 +1,19 @@
+import allure
+
 from src.models.car_model import Car
 from src.pages.garage_page import GaragePage
 from tests.base_test import BaseTest
 
 
+@allure.epic("QA-10 Garage Epic")
+@allure.feature("QA-100 Garage Feature")
 class TestGaragePage(BaseTest):
     """Test Garage page"""
 
+    @allure.story("QA-102 Add Cars to Garage Story")
+    @allure.title("Add car to garage")
+    @allure.description("Verify that user can add car to garage")
+    @allure.link("https://jira.example.com/browse/QA-102")
     def test_add_car(self, driver, auto_config):
         # Login as guest
         self.login_as_guest(driver, auto_config)

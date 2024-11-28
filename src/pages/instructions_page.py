@@ -1,3 +1,4 @@
+import allure
 from assertpy import assert_that
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -15,9 +16,11 @@ class InstructionsPage(BasePage):
         super().__init__(driver, qa_auto_config)
         self.left_menu = LeftMenu(driver, qa_auto_config)
 
+    @allure.step("Open Instructions page")
     def open(self):
         url = "/panel/instructions"
         self.driver.get(f"{self.base_url}{url}")
 
+    @allure.step("Click download")
     def click_download(self, title: str):
         pass
