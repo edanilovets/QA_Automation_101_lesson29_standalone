@@ -15,7 +15,7 @@ class TestInstructionsPage(BaseTest):
 
     @allure.story("Download instruction")
     @allure.issue("https://eugenedanilovets.atlassian.net/browse/QA-4", "QA-4 Instruction is not downloaded")
-    def test_instruction_download(self, driver, auto_config, login_as_guest):
+    def test_instruction_download(self, driver, auto_config, guest_login_logout):
         instructions_page = InstructionsPage(driver, auto_config)
         instructions_page.open()
         car = Car(brand="Audi", model="TT")

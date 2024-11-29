@@ -21,7 +21,7 @@ def pytest_configure():
 def auto_config() -> dict:
     return qa_auto_config
 
-@pytest.fixture(scope="class")
+@pytest.fixture(scope="session")
 def driver(request):
     # setup
     browser = request.config.getoption("--browser")

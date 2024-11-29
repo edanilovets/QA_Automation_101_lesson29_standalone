@@ -8,7 +8,9 @@ from src.utils.settings_reader import SettingsReader
 
 
 @pytest.fixture(scope="function")
-def login_as_guest(driver: WebDriver, auto_config: dict):
+def guest_login_logout(driver: WebDriver, auto_config: dict):
     main_page = MainPage(driver, auto_config)
     main_page.open()
     main_page.click_guest_login()
+    yield
+    main_page.logout()
