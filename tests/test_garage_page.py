@@ -15,10 +15,8 @@ class TestGaragePage(BaseTest):
     @allure.tag("Car")
     @allure.title("Add car to the garage")
     @pytest.mark.smoke
-    def test_add_car(self, driver, auto_config):
+    def test_add_car(self, driver, auto_config, login_as_guest):
         """Test adding a car to the garage. Verify that the car was added."""
-        # Login as guest
-        self.login_as_guest(driver, auto_config)
         # Add car
         garage_page = GaragePage(driver, auto_config)
         # garage_page.left_menu.select_menu("Garage")
