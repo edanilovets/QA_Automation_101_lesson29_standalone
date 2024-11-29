@@ -12,6 +12,8 @@ pytest-logs.txt
 reports/
 local_reports/
 docker_reports/
+allure-results/
+allure-report/
 
 # Distribution / packaging
 .Python

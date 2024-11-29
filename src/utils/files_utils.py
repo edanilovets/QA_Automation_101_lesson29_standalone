@@ -18,7 +18,7 @@ class FileUtils:
             raise OSError("Unsupported operating system")
 
     @staticmethod
-    def wait_for_file_download(file_name: str, timeout: int = 10) -> bool:
+    def wait_for_file_download(file_name: str, timeout: int = 2) -> bool:
         """Waits for a file to be downloaded to the Downloads folder.
         Returns True if the file is downloaded, False otherwise.
 

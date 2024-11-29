@@ -1,3 +1,4 @@
+import allure
 from assertpy import assert_that
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -24,10 +25,12 @@ class GaragePage(BasePage):
     CAR_MILEAGE_SELECTOR = (By.ID, "addCarMileage1")
     ADD_BTN = (By.CSS_SELECTOR, ".modal-footer .btn.btn-primary")
 
+    @allure.step("Open Garage page")
     def open(self):
         url = "/panel/garage"
         self.driver.get(f"{self.base_url}{url}")
 
+    @allure.step("Add car to the garage")
     def add_car(self, car: Car, wait_time: int = 5):
         """Adding car to the garage"""
         self.actions.click(self.ADD_CAR_BTN)
@@ -41,15 +44,18 @@ class GaragePage(BasePage):
         self.actions.click(self.ADD_BTN)
         WebDriverWait(self.driver, wait_time).until(CarToBeAddedToGarage())
 
+    @allure.step("Wait for number of cars to be {num}")
     def wait_for_number_of_cars_to_be(self, num: int = 1, wait_time: int = 5):
         WebDriverWait(self.driver, wait_time).until(CarsNumberToBe(num))
 
+    @allure.step("Get car from garage by index {index}")
     def get_car_from_garage_by_index(self, index: int = 1) -> Car:
         car_item_el = self.actions.find((By.CSS_SELECTOR, f".car-list li:nth-child({index})"))
         model, brand = car_item_el.find_element(By.CSS_SELECTOR, ".car_name").text.split()
         mileage = car_item_el.find_element(By.CSS_SELECTOR, ".update-mileage-form_input").get_attribute("valueAsNumber")
         return Car(model, brand, float(mileage))
 
+    @allure.step("Assert that car was added")
     def assert_that_car_was_added(self, car: Car, index: int = 1):
         actual_car = self.get_car_from_garage_by_index(index)
         assert_that(actual_car).is_equal_to(car)
