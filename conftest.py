@@ -1,3 +1,4 @@
+import allure
 import pytest
 from selenium.webdriver import Chrome, ChromeOptions, Firefox, FirefoxOptions, Remote
 
@@ -15,6 +16,7 @@ def pytest_configure():
     base_url_ui = settings.get_base_ui_url()
     qa_auto_config.update({"base_url_ui": base_url_ui})
 
+@allure.title("Create config")
 @pytest.fixture(scope="session")
 def auto_config() -> dict:
     return qa_auto_config
