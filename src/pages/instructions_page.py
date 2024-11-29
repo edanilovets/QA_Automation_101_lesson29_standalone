@@ -18,6 +18,7 @@ class InstructionsPage(BasePage):
 
     @allure.step("Open Instructions page")
     def open(self):
+        self.logger.info("Opening Instructions page")
         url = "/panel/instructions"
         self.driver.get(f"{self.base_url}{url}")
 

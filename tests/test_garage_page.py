@@ -1,4 +1,5 @@
 import allure
+import pytest
 
 from src.models.car_model import Car
 from src.pages.garage_page import GaragePage
@@ -13,6 +14,7 @@ class TestGaragePage(BaseTest):
     @allure.story("Add car")
     @allure.tag("Car")
     @allure.title("Add car to the garage")
+    @pytest.mark.smoke
     def test_add_car(self, driver, auto_config):
         """Test adding a car to the garage. Verify that the car was added."""
         # Login as guest

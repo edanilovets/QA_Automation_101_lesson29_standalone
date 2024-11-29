@@ -6,6 +6,7 @@ import pytest
 @allure.epic("Database Epic")
 @allure.feature("Database Feature")
 class TestDatabase:
+
     @pytest.mark.skip("Database connection is not available")
     def test_database_connection():
         # Connect to the PostgreSQL default database
