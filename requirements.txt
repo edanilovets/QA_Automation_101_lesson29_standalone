@@ -4,6 +4,5 @@ requests
 assertpy
 pytest-html
 pytest-html-reporter
-psycopg2
 allure-pytest
 pytest-xdist
