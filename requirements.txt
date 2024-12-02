@@ -3,6 +3,5 @@ selenium
 requests
 assertpy
 pytest-html
-pytest-html-reporter
 allure-pytest
 pytest-xdist

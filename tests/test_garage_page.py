@@ -11,10 +11,10 @@ from tests.base_test import BaseTest
 class TestGaragePage(BaseTest):
     """Test Garage page"""
 
+    @pytest.mark.smoke
     @allure.story("Add car")
     @allure.tag("Car")
     @allure.title("Add car to the garage")
-    @pytest.mark.smoke
     def test_add_car(self, driver, auto_config, guest_login_logout):
         """Test adding a car to the garage. Verify that the car was added."""
         # Add car

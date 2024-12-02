@@ -43,4 +43,4 @@ RUN pip install -r requirements.txt
 RUN mkdir -p docker_reports
 
 # Command to run the script
-CMD ["pytest", "--headless", "--html=docker_reports/run_in_container_report.html", "--self-contained-html"]
+CMD ["pytest", "--headless", "-m", "smoke"]
