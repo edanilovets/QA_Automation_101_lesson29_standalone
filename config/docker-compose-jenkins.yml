@@ -8,5 +8,6 @@ services:
       - "50000:50000"
     volumes:
       - /Users/danilovets/Personal/Hillel/jenkins_data:/var/jenkins_home:cached
+      - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
 
