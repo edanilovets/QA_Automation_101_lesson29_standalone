@@ -36,6 +36,9 @@ WORKDIR /app
 COPY . /app
 
 # python dependencies
+RUN rm -rf venv
+RUN python3 -m venv venv
+RUN source venv/bin/activate
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
@@ -43,4 +46,4 @@ RUN pip install -r requirements.txt
 RUN mkdir -p docker_reports
 
 # Command to run the script
-CMD ["pytest", "--headless", "-m", "smoke"]
+CMD ["pytest", "-vv", "--headless", "-m", "smoke"]

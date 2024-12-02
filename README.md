@@ -4,24 +4,24 @@ https://gist.github.com/varyonic/dea40abcf3dd891d204ef235c6e8dd79
 
 ### Build and check the docker image
 ```bash
-docker build -t selenium-tests:latest .
+docker build -t ui-tests:latest -f Dockerfile.chrome .
 ```
 
 ### Debug the docker image
 ```bash
-docker run --rm -it selenium-tests bash
+docker run --rm -it ui-tests bash
 ```
 
 ### Run the tests
 ```bash
-docker run --rm selenium-tests:latest
-docker run --rm -v $(pwd)/docker_reports:/app/docker_reports selenium-tests:latest
+docker run --rm ui-tests:latest
+docker run --rm -v $(pwd)/docker_reports:/app/docker_reports ui-tests:latest
 ```
 
 
 ### Run the tests with a shared memory of 2GB
 ```bash
-docker run --rm --shm-size=2g selenium-tests
+docker run --rm --shm-size=2g ui-tests
 ```
 
 # Create a smoke test container
