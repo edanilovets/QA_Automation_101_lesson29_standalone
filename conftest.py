@@ -13,9 +13,9 @@ def pytest_addoption(parser):
                      help="Browser to run: chrome, chrome-selenium-standalone, chrome-docker")
     parser.addoption("--headless", action="store_true", help="Run tests in headless mode")
 
-def pytest_configure():
+def pytest_configure(config):
     settings = SettingsReader()
-    base_url_ui = settings.get_base_ui_url()
+    base_url_ui = settings.get_base_ui_url(env=config.getoption("--env"))
     qa_auto_config.update({"base_url_ui": base_url_ui})
 
 @allure.title("Create config")
