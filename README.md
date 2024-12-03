@@ -15,7 +15,7 @@ docker run --rm -it ui-tests bash
 ### Run the tests
 ```bash
 docker run --rm ui-tests:latest
-docker run --rm -v $(pwd)/docker_reports:/app/docker_reports ui-tests:latest
+docker run --rm -v $(pwd)/allure-results:/app/allure-results ui-tests:latest
 ```
 
 

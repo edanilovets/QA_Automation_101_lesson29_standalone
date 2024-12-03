@@ -17,9 +17,17 @@ pipeline {
         stage('Run tests') {
             steps {
                 sh '''
-                /usr/local/bin/docker run --rm ui-tests-job:latest
+                /usr/local/bin/docker run --rm -v $(pwd)/allure-results:/app/allure-results ui-tests-job:latest
                 '''
             }
+        }
+    }
+    post {
+        always {
+            allure includeProperties:
+                false,
+                jdk: '',
+                results: [[path: 'allure-results']]
         }
     }
 }
