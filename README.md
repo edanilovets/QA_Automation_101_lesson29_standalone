@@ -4,7 +4,7 @@ https://gist.github.com/varyonic/dea40abcf3dd891d204ef235c6e8dd79
 
 ### Build and check the docker image
 ```bash
-docker build -t ui-tests:latest -f Dockerfile.chrome .
+docker build -t ui-tests:latest -f config/Dockerfile.chrome .
 ```
 
 ### Debug the docker image

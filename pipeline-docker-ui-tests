@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/edanilovets/QA_Automation_101_lessons29_32_standalone'
+            }
+        }
+        stage('Build docker image') {
+            steps {
+                sh '''
+                docker build -t ui-tests-job:latest -f config/Dockerfile.chrome .
+                '''
+            }
+        }
+        stage('Run tests') {
+            steps {
+                sh '''
+                docker run --rm ui-tests-job:latest
+                '''
+            }
+        }
+    }
+}
