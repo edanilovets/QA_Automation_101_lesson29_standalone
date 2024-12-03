@@ -10,14 +10,14 @@ pipeline {
         stage('Build docker image') {
             steps {
                 sh '''
-                docker build -t ui-tests-job:latest -f config/Dockerfile.chrome .
+                /usr/local/bin/docker build -t ui-tests-job:latest -f config/Dockerfile.chrome .
                 '''
             }
         }
         stage('Run tests') {
             steps {
                 sh '''
-                docker run --rm ui-tests-job:latest
+                /usr/local/bin/docker run --rm ui-tests-job:latest
                 '''
             }
         }
